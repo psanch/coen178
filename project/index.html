@@ -1,0 +1,381 @@
+<!doctype html>
+<html ng-app="coresavail">
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Import Angular JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <meta charset="utf-8"/>
+      <title>CoresAvail</title>
+
+  </head>
+
+  <body ng-controller="home" class="background">
+
+    <div>
+      <a href='index.html?showIfOneCore=true' style="color:blue;font-size:18px"> 1) Show Classes that Satisfy >0 Core Requirement(s)</a>
+   
+    </div>
+
+
+    <br><br>
+
+    <div>
+         <form method="post" action="procSearchSpecificCore.php">
+  
+        <fieldset>
+            <legend style="color:black;font-size:18px"> 2) Show classes that fulfill a specific Core Requirement:</legend>
+            
+            <input type="radio" name="category" id="CTW1" value="CTW1">
+            <label for="CTW1">CTW1</label>
+            <input type="radio" name="category" id="CTW2" value="CTW2">
+            <label for="CTW2">CTW2</label>
+            <input type="radio" name="category" id="CNI1" value="CNI1">
+            <label for="CNI1">CNI1</label>
+            <input type="radio" name="category" id="CNI2" value="CNI2">
+            <label for="CNI2">CNI2</label>
+            <input type="radio" name="category" id="CNI3" value="CNI3">
+            <label for="CNI3">CNI3</label>
+            <br>
+            <input type="radio" name="category" id="STS" value="STS">
+            <label for="STS">STS</label>
+            <input type="radio" name="category" id="CivicEngagement" value="CivicEngagement">
+            <label for="CivicEngagement">CivicEngagement</label>
+            <input type="radio" name="category" id="Diversity" value="Diversity">
+            <label for="Diversity">Diversity</label>
+            <input type="radio" name="category" id="Ethics" value="Ethics">
+            <label for="Ethics">Ethics</label>
+            <input type="radio" name="category" id="RTC1" value="RTC1">
+            <label for="RTC1">RTC1</label>
+            <br>
+            <input type="radio" name="category" id="RTC2" value="RTC2">
+            <label for="RTC2">RTC2</label>
+            <input type="radio" name="category" id="RTC3" value="RTC3">
+            <label for="RTC3">RTC3</label>
+            <input type="radio" name="category" id="ELSJ" value="ELSJ">
+            <label for="ELSJ">ELSJ</label>
+            <input type="radio" name="category" id="AdvancedWriting" value="AdvancedWriting">
+            <label for="AdvancedWriting">AdvancedWriting</label>
+            <input type="radio" name="category" id="Arts" value="Arts">
+            <label for="Arts">Arts</label>
+            <br>
+            <input type="radio" name="category" id="Language" value="Language">
+            <label for="Language">Language</label>
+            <input type="radio" name="category" id="NaturalScience" value="NaturalScience">
+            <label for="NaturalScience">NaturalScience</label>
+            <input type="radio" name="category" id="SocialScience" value="SocialScience">
+            <label for="SocialScience">SocialScience</label>
+            <input type="radio" name="category" id="Mathematics" value="Mathematics">
+            <label for="Mathematics">Mathematics</label>
+            <br>
+        </fieldset>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+    </form>
+    </div>
+
+    <br><br>
+
+    <div>
+      <a href='index.html?showIfGreaterThanOneCore=true' style="color:blue;font-size:18px"> 3) Show Classes that Satisfy >1 Core Requirements</a>
+   
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procCoreByDepartment.php">
+        <fieldset>
+                <legend style="color:black;font-size:18px"> 4) Show Classes that Satisfy >0 Core Requirement(s) by Department</legend>
+                  <label for="title">Department:</label>
+                <input type="text" name="title" id="title">
+        </fieldset> 
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procCompletedCore.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 5) Show Completed Core by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procWIPCore.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 6) Show WIP Core by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procWIPCore.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 7) Show Incomplete Core by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procSetCompletedCore.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 8) Set Previously Completed Core by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+        
+        <fieldset>
+          <legend style="color:gray;font-size:16px">Select Previously Completed Core:</legend>
+
+            <input type="checkbox" name="hlight[]" id="CTW1" value="CTW1">
+            <label for="CTW1">CTW1</label>
+            <input type="checkbox" name="hlight[]" id="CTW2" value="CTW2">
+            <label for="CTW2">CTW2</label>
+            <input type="checkbox" name="hlight[]" id="CNI1" value="CNI1">
+            <label for="CNI1">CNI1</label>
+            <input type="checkbox" name="hlight[]" id="CNI2" value="CNI2">
+            <label for="CNI2">CNI2</label>
+            <input type="checkbox" name="hlight[]" id="CNI3" value="CNI3">
+            <label for="CNI3">CNI3</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="STS" value="STS">
+            <label for="STS">STS</label>
+            <input type="checkbox" name="hlight[]" id="CivicEngagement" value="CivicEngagement">
+            <label for="CivicEngagement">CivicEngagement</label>
+            <input type="checkbox" name="hlight[]" id="Diversity" value="Diversity">
+            <label for="Diversity">Diversity</label>
+            <input type="checkbox" name="hlight[]" id="Ethics" value="Ethics">
+            <label for="Ethics">Ethics</label>
+            <input type="checkbox" name="hlight[]" id="RTC1" value="RTC1">
+            <label for="RTC1">RTC1</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="RTC2" value="RTC2">
+            <label for="RTC2">RTC2</label>
+            <input type="checkbox" name="hlight[]" id="RTC3" value="RTC3">
+            <label for="RTC3">RTC3</label>
+            <input type="checkbox" name="hlight[]" id="ELSJ" value="ELSJ">
+            <label for="ELSJ">ELSJ</label>
+            <input type="checkbox" name="hlight[]" id="AdvancedWriting" value="AdvancedWriting">
+            <label for="AdvancedWriting">AdvancedWriting</label>
+            <input type="checkbox" name="hlight[]" id="Arts" value="Arts">
+            <label for="Arts">Arts</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="Language" value="Language">
+            <label for="Language">Language</label>
+            <input type="checkbox" name="hlight[]" id="NaturalScience" value="NaturalScience">
+            <label for="NaturalScience">NaturalScience</label>
+            <input type="checkbox" name="hlight[]" id="SocialScience" value="SocialScience">
+            <label for="SocialScience">SocialScience</label>
+            <input type="checkbox" name="hlight[]" id="Mathematics" value="Mathematics">
+            <label for="Mathematics">Mathematics</label>
+            <br>
+
+        </fieldset>
+
+            <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procSetWIPCore.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 8) Set WIP Core by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+        
+        <fieldset>
+          <legend style="color:gray;font-size:16px">Select WIP Core:</legend>
+
+            <input type="checkbox" name="hlight[]" id="CTW1" value="CTW1">
+            <label for="CTW1">CTW1</label>
+            <input type="checkbox" name="hlight[]" id="CTW2" value="CTW2">
+            <label for="CTW2">CTW2</label>
+            <input type="checkbox" name="hlight[]" id="CNI1" value="CNI1">
+            <label for="CNI1">CNI1</label>
+            <input type="checkbox" name="hlight[]" id="CNI2" value="CNI2">
+            <label for="CNI2">CNI2</label>
+            <input type="checkbox" name="hlight[]" id="CNI3" value="CNI3">
+            <label for="CNI3">CNI3</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="STS" value="STS">
+            <label for="STS">STS</label>
+            <input type="checkbox" name="hlight[]" id="CivicEngagement" value="CivicEngagement">
+            <label for="CivicEngagement">CivicEngagement</label>
+            <input type="checkbox" name="hlight[]" id="Diversity" value="Diversity">
+            <label for="Diversity">Diversity</label>
+            <input type="checkbox" name="hlight[]" id="Ethics" value="Ethics">
+            <label for="Ethics">Ethics</label>
+            <input type="checkbox" name="hlight[]" id="RTC1" value="RTC1">
+            <label for="RTC1">RTC1</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="RTC2" value="RTC2">
+            <label for="RTC2">RTC2</label>
+            <input type="checkbox" name="hlight[]" id="RTC3" value="RTC3">
+            <label for="RTC3">RTC3</label>
+            <input type="checkbox" name="hlight[]" id="ELSJ" value="ELSJ">
+            <label for="ELSJ">ELSJ</label>
+            <input type="checkbox" name="hlight[]" id="AdvancedWriting" value="AdvancedWriting">
+            <label for="AdvancedWriting">AdvancedWriting</label>
+            <input type="checkbox" name="hlight[]" id="Arts" value="Arts">
+            <label for="Arts">Arts</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="Language" value="Language">
+            <label for="Language">Language</label>
+            <input type="checkbox" name="hlight[]" id="NaturalScience" value="NaturalScience">
+            <label for="NaturalScience">NaturalScience</label>
+            <input type="checkbox" name="hlight[]" id="SocialScience" value="SocialScience">
+            <label for="SocialScience">SocialScience</label>
+            <input type="checkbox" name="hlight[]" id="Mathematics" value="Mathematics">
+            <label for="Mathematics">Mathematics</label>
+            <br>
+
+        </fieldset>
+
+            <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procSetIncompleteCore.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 8) Set Incomplete Core by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+        <br>
+        <p> This functionality is intended for you to be able to correct any core you may have accidentally selected.</p>
+        <fieldset>
+          <legend style="color:gray;font-size:16px">Select Incomplete Core:</legend>
+
+            <input type="checkbox" name="hlight[]" id="CTW1" value="CTW1">
+            <label for="CTW1">CTW1</label>
+            <input type="checkbox" name="hlight[]" id="CTW2" value="CTW2">
+            <label for="CTW2">CTW2</label>
+            <input type="checkbox" name="hlight[]" id="CNI1" value="CNI1">
+            <label for="CNI1">CNI1</label>
+            <input type="checkbox" name="hlight[]" id="CNI2" value="CNI2">
+            <label for="CNI2">CNI2</label>
+            <input type="checkbox" name="hlight[]" id="CNI3" value="CNI3">
+            <label for="CNI3">CNI3</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="STS" value="STS">
+            <label for="STS">STS</label>
+            <input type="checkbox" name="hlight[]" id="CivicEngagement" value="CivicEngagement">
+            <label for="CivicEngagement">CivicEngagement</label>
+            <input type="checkbox" name="hlight[]" id="Diversity" value="Diversity">
+            <label for="Diversity">Diversity</label>
+            <input type="checkbox" name="hlight[]" id="Ethics" value="Ethics">
+            <label for="Ethics">Ethics</label>
+            <input type="checkbox" name="hlight[]" id="RTC1" value="RTC1">
+            <label for="RTC1">RTC1</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="RTC2" value="RTC2">
+            <label for="RTC2">RTC2</label>
+            <input type="checkbox" name="hlight[]" id="RTC3" value="RTC3">
+            <label for="RTC3">RTC3</label>
+            <input type="checkbox" name="hlight[]" id="ELSJ" value="ELSJ">
+            <label for="ELSJ">ELSJ</label>
+            <input type="checkbox" name="hlight[]" id="AdvancedWriting" value="AdvancedWriting">
+            <label for="AdvancedWriting">AdvancedWriting</label>
+            <input type="checkbox" name="hlight[]" id="Arts" value="Arts">
+            <label for="Arts">Arts</label>
+            <br>
+            <input type="checkbox" name="hlight[]" id="Language" value="Language">
+            <label for="Language">Language</label>
+            <input type="checkbox" name="hlight[]" id="NaturalScience" value="NaturalScience">
+            <label for="NaturalScience">NaturalScience</label>
+            <input type="checkbox" name="hlight[]" id="SocialScience" value="SocialScience">
+            <label for="SocialScience">SocialScience</label>
+            <input type="checkbox" name="hlight[]" id="Mathematics" value="Mathematics">
+            <label for="Mathematics">Mathematics</label>
+            <br>
+
+        </fieldset>
+
+            <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+    <br><br>
+
+    <div>
+      
+      <form method="post" action="procCanGraduate.php">
+        <fieldset>
+          <legend style="color:black;font-size:18px"> 9) Show if Student can Graduate by StudentID</legend>
+            <label for="StudentID">StudentID</label>
+          <input type="text" name="StudentID" id="StudentID">
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+
+    </div>
+
+
+  </body>
+</html>
