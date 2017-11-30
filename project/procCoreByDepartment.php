@@ -81,7 +81,7 @@ $conn=oci_connect( /* insert login details */ );
 	     print "<br> connection failed:";
         exit;
 	}
-	$query = oci_parse($conn, "SELECT * FROM AllClasses where dept = upper(:title)");
+	$query = oci_parse($conn, "SELECT * FROM AllClasses where dept = upper(:dept)");
 
 	oci_bind_by_name($query, ':title', $title);
 
@@ -92,9 +92,7 @@ $conn=oci_connect( /* insert login details */ );
 	OCILogoff($conn);
 }
 
+?>
 
-
-  ?>
-</body>
-
+	</body>
 </html>
