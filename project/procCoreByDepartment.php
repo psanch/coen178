@@ -7,7 +7,7 @@
    <body>
 
    		<br>
-		<a href='showBooks.php?show=true'> SHOW All Cores </a>
+		<a href='showBooks.php?show=true'> SHOW All Cores by Department</a>
 		<br><br>
 
 
@@ -16,13 +16,13 @@
 if (isset($_GET['show'])) {
     showBooks();
 }
-
+ 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // collect input data
 
 	/* 
-	 *Show classes that fulfill a specific Core Requirement
+	 *Show classes that fulfill a specific Department Requirement
 	 */
 
     $CTW1 = $_POST['CTW1'];
@@ -81,16 +81,14 @@ $conn=oci_connect( /* insert login details */ );
 	     print "<br> connection failed:";
         exit;
 	}
-	$query = oci_parse($conn, "SELECT * FROM AllClasses where dept = $title");
+	$query = oci_parse($conn, "SELECT * FROM AllClasses where dept = upper(:title)");
 
+	oci_bind_by_name($query, ':title', $title);
 
 	oci_execute($query);
 	while (($row = oci_fetch_array($query, OCI_BOTH)) != false) {
 		echo "<font color='green'> $row[0] </font></br>";
-		echo "<font color='green'> $row[1] </font></br>";
-		echo "<font color='green'> $row[2] </font></br>";
-		echo "<font color='green'> $row[3] </font></br>";
-	}
+		
 	OCILogoff($conn);
 }
 
