@@ -43,6 +43,65 @@ function insertCoresCompletedIntoDB($StudentID,$highlights)
 
     foreach ( $highlights as $oneHighlight ) 
     {
+      foreach ( $highlights as $oneHighlight ) 
+    {
+      switch ($oneHighlight) {
+        case 'CTW1':
+            $oneHighlight = 'complete';
+            break;
+        case 'CTW2':
+            $oneHighlight = 'complete';
+            break;
+        case 'CNI1':
+            $oneHighlight = 'complete';
+            break;
+        case 'CNI2':
+            $oneHighlight = 'complete';
+            break;
+        case 'CNI3':
+            $oneHighlight = 'complete';
+            break;
+        case 'STS':
+            $oneHighlight = 'complete';
+            break;
+        case 'CivicEngagement':
+            $oneHighlight = 'complete';
+            break;
+        case 'Diversity':
+            $oneHighlight = 'complete';
+            break;
+        case 'Ethics':
+            $oneHighlight = 'complete';
+            break;
+        case 'RTC1':
+            $oneHighlight = 'complete';
+            break;
+        case 'RTC2':
+            $oneHighlight = 'complete';
+            break;
+        case 'RTC3':
+            $oneHighlight = 'complete';
+            break;
+        case 'ELSJ':
+            $oneHighlight = 'complete';
+            break;
+        case 'AdvancedWriting':
+            $oneHighlight = 'complete';
+            break;
+        case 'Language':
+            $oneHighlight = 'complete';
+            break;
+        case 'NaturalScience':
+            $oneHighlight = 'complete';
+            break;
+        case 'SocialScience':
+            $oneHighlight = 'complete';
+            break;
+        case 'Mathematics':
+            $oneHighlight = 'complete';
+            break;
+        
+      }
       oci_bind_by_name($query, ':StudentID', $StudentID);
       oci_bind_by_name($query, ':CoreRequirements', $oneHighlight);
       // Execute the query
@@ -52,5 +111,4 @@ function insertCoresCompletedIntoDB($StudentID,$highlights)
     OCILogoff($conn);       
 }
 
-?>
-        
+?>      
